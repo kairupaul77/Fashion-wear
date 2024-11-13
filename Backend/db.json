@@ -1,0 +1,44 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "username": "john_doe",
+        "email": "john.doe@example.com",
+        "password": "john123"
+      },
+      {
+        "id": 2,
+        "username": "jane_smith",
+        "email": "jane.smith@example.com",
+        "password": "jane1234"
+      }
+    ],
+    "products": [
+      {
+        "id": 1,
+        "name": "Running Shoes",
+        "description": "High-quality running shoes for long-distance training.",
+        "price": 120.00,
+        "stock": 50,
+        "imageUrl": "https://example.com/images/running-shoes.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Basketball Shoes",
+        "description": "Durable basketball shoes with extra ankle support.",
+        "price": 150.00,
+        "stock": 30,
+        "imageUrl": "https://example.com/images/basketball-shoes.jpg"
+      },
+      {
+        "id": 3,
+        "name": "Casual Sneakers",
+        "description": "Comfortable casual sneakers for everyday use.",
+        "price": 90.00,
+        "stock": 75,
+        "imageUrl": "https://example.com/images/casual-sneakers.jpg"
+      }
+    ]
+    
+}
+  
