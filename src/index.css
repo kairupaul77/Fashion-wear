@@ -1,68 +1,543 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
+/* General Styles */
 body {
   margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4; /* Light gray background for the entire page */
+}
+
+/* Header Section Styles */
+.header {
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: hsl(180, 33%, 98%); /* Light cyan background */
+  color: rgb(36, 24, 24); /* Dark text color */
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.header h1 {
+  margin: 0;
+  font-size: 2rem;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+.header-image {
+  width: 150px;
+  height: auto;
+  object-fit: cover;
+  margin-left: 20px;
+}
+
+/* Main Content Section Styles */
+.main-content {
+  display: flex; /* Flex container for the products */
+  flex-wrap: wrap; /* Allow products to wrap on smaller screens */
+  justify-content: space-between; /* Space between product sections */
+  gap: 20px; /* Space between each product */
+  background-color: #5cf554; /* Light green background for the main content */
+  padding: 40px 20px;
+}
+
+.product {
+  display: flex;
+  flex-direction: column; /* Stack image and text vertically */
+  align-items: center; /* Center the content horizontally */
+  width: 30%; /* Each product takes up 30% of the container width */
+  background-color: #fff; /* White background for each product */
+  border-radius: 8px; /* Optional: rounded corners for product */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: shadow for depth */
+  padding: 15px;
+  text-align: center; /* Center the text below the image */
+}
+
+.product-image {
+  width: 80%; /* Smaller image size, taking 80% of the product's width */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 8px; /* Optional: rounded corners for the image */
+  object-fit: cover; /* Ensure the image covers the container */
+}
+
+.image-description {
+  margin-top: 15px; /* Add space between the image and the description */
+  font-size: 16px;
+  color: #555; /* Darker text for the description */
+  line-height: 1.5; /* Improve readability */
+}
+
+/* Button Styles (from Uiverse.io by Randdose) */
+.button {
+  all: unset;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 0.6em 2em;
+  border: mediumspringgreen solid 0.15em;
+  border-radius: 0.25em;
+  color: mediumspringgreen;
+  font-size: 1.5em;
+  font-weight: 600;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  overflow: hidden;
+  transition: border 300ms, color 300ms;
+  user-select: none;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+.button p {
+  z-index: 1;
+}
+
+.button:hover {
+  color: #212121;
+}
+
+.button:active {
+  border-color: teal;
+}
+
+.button::after, .button::before {
+  content: "";
+  position: absolute;
+  width: 9em;
+  aspect-ratio: 1;
+  background: mediumspringgreen;
+  opacity: 50%;
+  border-radius: 50%;
+  transition: transform 500ms, background 300ms;
+}
+
+.button::before {
+  left: 0;
+  transform: translateX(-8em);
+}
+
+.button::after {
+  right: 0;
+  transform: translateX(8em);
+}
+
+.button:hover:before {
+  transform: translateX(-1em);
+}
+
+.button:hover:after {
+  transform: translateX(1em);
+}
+
+.button:active:before,
+.button:active:after {
+  background: teal;
+}
+
+/* Footer Section Styles */
+.footer {
+  background-color: #dfd0d0; /* Light beige background for footer */
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+/* From Uiverse.io by Mohammad-Rahme-576 */ 
+/* Container Styles */
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+  font-family: "Arial", sans-serif;
+  overflow: visible;
+}
+
+/* Button Styles */
+.button-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  color: white;
+  padding: 14px 28px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition:
+    background 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+    transform 0.3s ease,
+    box-shadow 0.4s ease;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.button-content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(110, 142, 251, 0.4),
+    rgba(167, 119, 227, 0.4)
+  );
+  filter: blur(15px);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: -1;
+}
+
+.button-content::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  transform: scale(0);
+  transition: transform 0.6s ease-out;
+  z-index: -1;
+}
+
+.button-content:hover::before {
+  opacity: 1;
+}
+
+.button-content:hover::after {
+  transform: scale(1);
+}
+
+.button-content:hover {
+  background: linear-gradient(135deg, #a777e3, #6e8efb);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  transform: translateY(-4px) scale(1.03);
+}
+
+.button-content:active {
+  transform: translateY(-2px) scale(0.98);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.text {
+  font-size: 18px;
+  font-weight: 600;
+  margin-right: 12px;
+  white-space: nowrap;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  transition: letter-spacing 0.3s ease;
+}
+
+.button-content:hover .text {
+  letter-spacing: 1px;
+}
+
+.share-icon {
+  fill: white;
+  transition:
+    transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+    fill 0.3s ease;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+.button-content:hover .share-icon {
+  transform: rotate(180deg) scale(1.1);
+  fill: #ffffff;
+}
+
+/* Tooltip Styles */
+.tooltip-content {
+  position: absolute;
+  top: 102%;
+  left: 50%;
+  transform: translateX(-50%) scale(0.8);
+  background: white;
+  border-radius: 15px;
+  padding: 22px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+    transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+    visibility 0.5s ease;
+  z-index: 100;
+  pointer-events: none;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.tooltip-container:hover .tooltip-content {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) scale(1);
+  pointer-events: auto;
+}
+
+/* Social Icons Styles */
+.social-icons {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #f0f0f0;
+  transition:
+    transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+    background 0.3s ease,
+    box-shadow 0.4s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.social-icon::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.social-icon:hover::before {
+  opacity: 1;
+}
+
+.social-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: #333;
+  transition:
+    transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+    fill 0.3s ease;
+  z-index: 1;
+}
+
+.social-icon:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.social-icon:active {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.social-icon:hover svg {
+  transform: scale(1.2);
+  fill: white;
+}
+
+.social-icon.twitter:hover {
+  background: linear-gradient(135deg, #1da1f2, #1a91da);
+}
+
+.social-icon.facebook:hover {
+  background: linear-gradient(135deg, #1877f2, #165ed0);
+}
+
+.social-icon.linkedin:hover {
+  background: linear-gradient(135deg, #0077b5, #005e94);
+}
+
+/* Animation for Pulse Effect */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(110, 142, 251, 0.4);
   }
-  a:hover {
-    color: #747bff;
+  70% {
+    box-shadow: 0 0 0 20px rgba(110, 142, 251, 0);
   }
-  button {
-    background-color: #f9f9f9;
+  100% {
+    box-shadow: 0 0 0 0 rgba(110, 142, 251, 0);
+  }
+}
+
+.button-content {
+  animation: pulse 3s infinite;
+}
+
+/* Hover Ripple Effect */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.button-content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: inherit;
+  transform: scale(0);
+  opacity: 0;
+}
+
+.button-content:active::before {
+  animation: ripple 0.6s linear;
+}
+
+/* Tooltip Arrow */
+.tooltip-content::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 0 10px 10px 10px;
+  border-style: solid;
+  border-color: transparent transparent rgba(255, 255, 255, 0.9) transparent;
+  filter: drop-shadow(0 -3px 3px rgba(0, 0, 0, 0.1));
+}
+
+/* Accessibility */
+.button-content:focus {
+  outline: none;
+  box-shadow:
+    0 0 0 3px rgba(110, 142, 251, 0.5),
+    0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.button-content:focus:not(:focus-visible) {
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .button-content {
+    padding: 12px 24px;
+    border-radius: 40px;
+  }
+
+  .text {
+    font-size: 16px;
+  }
+
+  .tooltip-content {
+    width: 240px;
+    padding: 18px;
+  }
+
+  .social-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .social-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .button-content {
+    padding: 10px 20px;
+  }
+
+  .text {
+    font-size: 14px;
+  }
+
+  .tooltip-content {
+    width: 200px;
+    padding: 15px;
+  }
+
+  .social-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .social-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .tooltip-content {
+    background: rgba(30, 30, 30, 0.9);
+    color: white;
+  }
+
+  .tooltip-content::before {
+    border-color: transparent transparent rgba(30, 30, 30, 0.9) transparent;
+  }
+
+  .social-icon {
+    background: #2a2a2a;
+  }
+
+  .social-icon svg {
+    fill: #e0e0e0;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .tooltip-container {
+    display: none;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .button-content,
+  .share-icon,
+  .social-icon,
+  .tooltip-content {
+    transition: none;
+  }
+
+  .button-content {
+    animation: none;
+  }
+}
+
+/* Custom Scrollbar for Tooltip Content */
+.tooltip-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.tooltip-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.tooltip-content::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+.tooltip-content::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
+/* Media Query for Small Screens */
+@media (max-width: 768px) {
+  .product {
+    width: 100%; /* Each product takes full width on small screens */
+    margin-bottom: 20px; /* Adds space between stacked products */
+  }
+
+  .main-content {
+    padding: 20px; /* Reduce padding on small screens */
   }
 }

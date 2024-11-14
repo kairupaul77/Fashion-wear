@@ -1,7 +1,9 @@
+import "./Shop";
+
 const Shop = () => {
-    return (  
+    return ( 
         <div></div>
-    );
+     );
 }
  
 export default Shop;

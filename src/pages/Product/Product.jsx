@@ -1,4 +1,4 @@
-import React from "react";
+import "./Product";
 
 const Product = () => {
     return ( 
